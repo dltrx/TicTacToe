@@ -64,6 +64,24 @@ public class TicTacToe {
         return false;
     }
 
+    private static boolean checkForWinOrDraw(String[][] board, String player) {
+        // Check for win
+        if (checkForWin(board, player)) {
+            return true;
+        }
+
+        // Check for draw
+        for (int i = 2; i <= 4; i++) {
+            for (int j = 2; j <= 4; j++) {
+                if (board[i][j].equals(" ")) {
+                    return false; // There are still empty cells, game is not a draw yet
+                }
+            }
+        }
+        // All cells are filled and no winner, it's a draw
+        return true;
+    }
+
     public static void printTicTacToe() {
         for (String[] strings : ticTacToe) {
             // Iterate through each element in the current array
@@ -108,13 +126,23 @@ public class TicTacToe {
                 }
                 ticTacToe[rowIndex][colIndex] = letter;
 
-                if (checkForWin(ticTacToe, letter)) {
-                    System.out.println(" ");
-                    printTicTacToe();
-                    System.out.println(" ");
-                    System.out.println("+——————————————————+");
-                    System.out.println("| Player \"" + letter + "\" wins! |");
-                    System.out.println("+——————————————————+");
+                if (checkForWinOrDraw(ticTacToe, letter)) {
+                    // Game over, check if it's a win or a draw
+                    if (checkForWin(ticTacToe, letter)) {
+                        System.out.println(" ");
+                        printTicTacToe();
+                        System.out.println(" ");
+                        System.out.println("+——————————————————+");
+                        System.out.println("| Player \"" + letter + "\" wins! |");
+                        System.out.println("+——————————————————+");
+                    } else {
+                        System.out.println(" ");
+                        printTicTacToe();
+                        System.out.println(" ");
+                        System.out.println("+——————————————+");
+                        System.out.println("| It's a draw! |");
+                        System.out.println("+——————————————+");
+                    }
                     gameOver = true;
                     break; // Exit the loop to end the game
                 }
