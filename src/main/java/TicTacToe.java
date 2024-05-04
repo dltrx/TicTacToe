@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
     static String[][] ticTacToe = new String[5][5];
+    private static boolean gameOver = false;
 
     public TicTacToe() {
         initializeArray();
@@ -22,21 +23,15 @@ public class TicTacToe {
         };
     }
 
-    private static boolean isValidIndex(int rowIndex, int colIndex, String[][] ticTacToe) {
+    public static boolean isGameOver() {
+        return gameOver;
+    }
+
+    protected static boolean isValidIndex(int rowIndex, int colIndex, String[][] ticTacToe) {
         if (rowIndex >= 2 && rowIndex < ticTacToe.length && colIndex >= 2 && colIndex < ticTacToe[0].length) {
             return ticTacToe[rowIndex][colIndex].equals(" ");
         }
         return false;
-    }
-
-    private static boolean isValidStart(String input) {
-        // Add your validation criteria here
-        return input.equalsIgnoreCase("start");
-    }
-
-    private static boolean isValidLetter(String input) {
-        // Add your validation criteria here
-        return input.matches("[XxOo]+");
     }
 
     private static boolean checkForWin(String[][] board, String player) {
@@ -64,7 +59,7 @@ public class TicTacToe {
         return false;
     }
 
-    private static boolean checkForWinOrDraw(String[][] board, String player) {
+    protected static boolean checkForWinOrDraw(String[][] board, String player) {
         // Check for win
         if (checkForWin(board, player)) {
             return true;
@@ -82,77 +77,31 @@ public class TicTacToe {
         return true;
     }
 
-    public static void printTicTacToe() {
-        for (String[] strings : ticTacToe) {
-            // Iterate through each element in the current array
-            for (String string : strings) {
-                // Print the current element
-                System.out.print(string + " ");
-            }
-            // Move to the next line after printing elements of each array
-            System.out.println();
-        }
-    }
-
     public static void main(String[] args) {
         new TicTacToe();
-        boolean gameOver = false;
+        gameOver = false;
+
+        String currentPlayer = TicTacToePlayerSetup.setupPlayers();
+
+//        String currentPlayer = TicTacToePlayerSetup.whoStarts();
 
         for (int i = 2; i < ticTacToe.length; i++) {
             for (int j = 2; j < ticTacToe[i].length; j++) {
-                Scanner scanner = new Scanner(System.in);
 
-                System.out.println(" ");
-                System.out.println("—————————————————————————————————————————");
-                System.out.println("Current game:");
-                printTicTacToe();
-                System.out.println(" ");
-                System.out.print("Enter X or O: ");
-                String letter = scanner.next();
+                while (!gameOver) {
+                    TicTacToePrinter.printBoard(ticTacToe); // Print current board
+                    TicTacToePrinter.playerTurn(ticTacToe, currentPlayer); // Player's turn
 
-                while (!isValidLetter(letter)) {
-                    System.out.print("Invalid! Please enter letter X or O: ");
-                    letter = scanner.next();
-                }
-
-                System.out.print("Enter coordinates (e.g., 2 3): ");
-                int rowIndex = scanner.nextInt();
-                int colIndex = scanner.nextInt();
-
-                while (!isValidIndex(rowIndex, colIndex, ticTacToe)) {
-                    System.out.print("Invalid indices! Please enter indices within 2-4 (min: 2 2, max: 4 4): ");
-                    rowIndex = scanner.nextInt();
-                    colIndex = scanner.nextInt();
-                }
-                ticTacToe[rowIndex][colIndex] = letter;
-
-                if (checkForWinOrDraw(ticTacToe, letter)) {
-                    // Game over, check if it's a win or a draw
-                    if (checkForWin(ticTacToe, letter)) {
-                        System.out.println(" ");
-                        printTicTacToe();
-                        System.out.println(" ");
-                        System.out.println("+——————————————————+");
-                        System.out.println("| Player \"" + letter + "\" wins! |");
-                        System.out.println("+——————————————————+");
-                    } else {
-                        System.out.println(" ");
-                        printTicTacToe();
-                        System.out.println(" ");
-                        System.out.println("+——————————————+");
-                        System.out.println("| It's a draw! |");
-                        System.out.println("+——————————————+");
+                    // Check for win or draw
+                    if (checkForWinOrDraw(ticTacToe, currentPlayer)) {
+                        gameOver = true;
+                        TicTacToePrinter.printResult(ticTacToe, currentPlayer, checkForWin(ticTacToe, currentPlayer));
+//                        gameOver = true; // Set gameOver to true to exit the loop
+                        break;
                     }
-                    gameOver = true;
-                    break; // Exit the loop to end the game
+                    currentPlayer = (currentPlayer.equals("X")) ? "O" : "X"; // Switch player
                 }
             }
-            if (gameOver) {
-                break; // Exit the outer loop if the game is over
-            }
-        }
-        if (!gameOver) {
-            printTicTacToe(); // Print final board if no winner
         }
     }
 }
