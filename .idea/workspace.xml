@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="de64b067-2f05-4207-a40a-24cc6e5dec18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeBoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeBoardManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeLogicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeLogicHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

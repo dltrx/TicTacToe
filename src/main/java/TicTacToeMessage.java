@@ -38,11 +38,11 @@ public class TicTacToeMessage {
 
     protected static void gameTitle() {
         if (TicTacToeLogicHandler.isGameOver()) {
-            System.out.println(" ");
+            System.out.println();
             System.out.println("—————————————————————————————————————————");
             System.out.println("GAME OVER!");
         } else {
-            System.out.println(" ");
+            System.out.println();
             System.out.println("—————————————————————————————————————————");
             System.out.println("Current game:");
         }

@@ -7,5 +7,7 @@ public class TicTacToe {
         String currentPlayer = TicTacToePlayerSetup.setupPlayers();
 
         TicTacToeLogicHandler.gameLoop(currentPlayer);
+
+        TicTacToeLogicHandler.playAgainOrExit(args);
     }
 }

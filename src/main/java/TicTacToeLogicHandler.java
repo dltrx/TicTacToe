@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class TicTacToeLogicHandler {
     private static String[][] ticTacToe = new String[5][5];
@@ -85,6 +86,30 @@ public class TicTacToeLogicHandler {
                     }
                     currentPlayer = (currentPlayer.equals("X")) ? "O" : "X"; // Switch player
                 }
+            }
+        }
+    }
+
+    protected static void playAgainOrExit(String[] args) {
+        boolean gameGoesOn = true;
+
+        while (gameGoesOn) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println();
+            System.out.print("Do you want to play again? (Type 'again' to play again, 'exit' to quit): ");
+            String choice = scanner.nextLine().trim();
+
+            while (!choice.equalsIgnoreCase("again") && !choice.equalsIgnoreCase("exit")) {
+                System.out.print("Invalid choice! Please type 'again' or 'exit': ");
+                choice = scanner.nextLine().trim();
+            }
+
+            if (choice.equalsIgnoreCase("exit")) {
+                gameGoesOn = false;
+            } else {
+                gameOver = false;
+                TicTacToe.main(args);
+                break;
             }
         }
     }

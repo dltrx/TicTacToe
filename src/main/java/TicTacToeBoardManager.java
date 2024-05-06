@@ -10,7 +10,7 @@ public class TicTacToeBoardManager {
             }
             System.out.println();
         }
-        System.out.println(" ");
+        System.out.println();
     }
 
     public static void printResult(String[][] ticTacToe, String player, boolean win) {
@@ -31,7 +31,7 @@ public class TicTacToeBoardManager {
         int colIndex = scanner.nextInt();
 
         while (!TicTacToeLogicHandler.isValidIndex(rowIndex, colIndex, ticTacToe)) {
-            System.out.print("Invalid indices! Please enter indices within 2-4 (min: 2 2, max: 4 4): ");
+            System.out.print("Invalid indices! Please enter each index within 2-4 (min: 2 2, max: 4 4): ");
             rowIndex = scanner.nextInt();
             colIndex = scanner.nextInt();
         }
