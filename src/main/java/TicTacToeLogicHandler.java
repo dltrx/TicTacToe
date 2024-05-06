@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class TicTacToeLogicHandler {
     private static String[][] ticTacToe = new String[5][5];
     private static boolean gameOver = false;
+    private static boolean gameGoesOn = true;
 
     protected static void initializeArray() {
         for (String[] strings : ticTacToe) {
@@ -91,8 +92,6 @@ public class TicTacToeLogicHandler {
     }
 
     protected static void playAgainOrExit(String[] args) {
-        boolean gameGoesOn = true;
-
         while (gameGoesOn) {
             Scanner scanner = new Scanner(System.in);
             System.out.println();
