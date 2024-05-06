@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class TicTacToeLogicHandler {
-    static String[][] ticTacToe = new String[5][5];
+    private static String[][] ticTacToe = new String[5][5];
     private static boolean gameOver = false;
 
     protected static void initializeArray() {
@@ -48,10 +48,7 @@ public class TicTacToeLogicHandler {
         if (board[2][2].equals(player) && board[3][3].equals(player) && board[4][4].equals(player)) {
             return true;
         }
-        if (board[4][2].equals(player) && board[3][3].equals(player) && board[2][4].equals(player)) {
-            return true;
-        }
-        return false;
+        return board[4][2].equals(player) && board[3][3].equals(player) && board[2][4].equals(player);
     }
 
     protected static boolean checkForWinOrDraw(String[][] board, String player) {
