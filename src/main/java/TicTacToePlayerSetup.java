@@ -24,7 +24,6 @@ class TicTacToePlayerSetup {
         player1Symbol = (randomPlayer == 1) ? "X" : "O";
         player2Symbol = (randomPlayer == 1) ? "O" : "X";
 
-        // Print the results
         TicTacToeMessage.willPlayAs();
 
         return whoStarts();

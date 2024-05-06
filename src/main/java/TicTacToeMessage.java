@@ -37,7 +37,7 @@ public class TicTacToeMessage {
     }
 
     protected static void gameTitle() {
-        if (TicTacToe.isGameOver()) {
+        if (TicTacToeLogicHandler.isGameOver()) {
             System.out.println(" ");
             System.out.println("—————————————————————————————————————————");
             System.out.println("GAME OVER!");

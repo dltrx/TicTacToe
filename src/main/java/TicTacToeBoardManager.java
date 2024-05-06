@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TicTacToePrinter {
+public class TicTacToeBoardManager {
 
     public static void printBoard(String[][] ticTacToe) {
         TicTacToeMessage.gameTitle();
@@ -30,7 +30,7 @@ public class TicTacToePrinter {
         int rowIndex = scanner.nextInt();
         int colIndex = scanner.nextInt();
 
-        while (!TicTacToe.isValidIndex(rowIndex, colIndex, ticTacToe)) {
+        while (!TicTacToeLogicHandler.isValidIndex(rowIndex, colIndex, ticTacToe)) {
             System.out.print("Invalid indices! Please enter indices within 2-4 (min: 2 2, max: 4 4): ");
             rowIndex = scanner.nextInt();
             colIndex = scanner.nextInt();
