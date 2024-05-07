@@ -38,12 +38,27 @@ class TicTacToePlayerSetup {
     }
 
     public static String whoStarts() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Which player will start? Enter 1 or 2: ");
-        int startingPlayerNumber = scanner.nextInt();
-        while (startingPlayerNumber != 1 && startingPlayerNumber != 2) {
-            System.out.print("Invalid input! Please enter 1 or 2: ");
-            startingPlayerNumber = scanner.nextInt();
+        int startingPlayerNumber;
+
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Which player will start? Enter 1 or 2: ");
+
+            // Check if the next token is an integer
+            if (scanner.hasNextInt()) {
+                startingPlayerNumber = scanner.nextInt();
+
+                // Check if the input is within valid range
+                if (startingPlayerNumber == 1 || startingPlayerNumber == 2) {
+                    break; // Exit loop if valid input is provided
+                } else {
+                    System.out.println("Invalid input! Please enter 1 or 2.");
+                }
+            } else {
+                // Clear the invalid input from the scanner
+                scanner.next();
+                System.out.println("Invalid input! Please enter an integer.");
+            }
         }
         return (startingPlayerNumber == 1) ? player1Symbol : player2Symbol;
     }

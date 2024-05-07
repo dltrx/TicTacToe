@@ -1,2 +1,2 @@
 # TicTacToe
-tic-tac-toe game made on java
+tic-tac-toe game made with java

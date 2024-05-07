@@ -25,8 +25,8 @@ public class TicTacToeBoardManager {
     public static void playerTurn(String[][] ticTacToe, String currentPlayer) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Player " + currentPlayer + "'s turn!");
-        System.out.print("Enter coordinates (e.g., 2 3): ");
+        System.out.println("* Player " + currentPlayer + "'s turn! *");
+        System.out.print("Enter coordinates (horizontal number and then vertical, for example: 2 3): ");
         int rowIndex = scanner.nextInt();
         int colIndex = scanner.nextInt();
 
