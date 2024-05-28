@@ -2,6 +2,17 @@ import java.util.Scanner;
 
 public class TicTacToeBoardManager {
 
+    public static void printResult(String[][] ticTacToe, String player, boolean win) {
+        printBoard(ticTacToe);
+        if (win) {
+            TicTacToeMessage.playerWins(player);
+            TicTacToeMessage.currentLeaderboard();
+        } else {
+            TicTacToeMessage.draw();
+            TicTacToeMessage.currentLeaderboard();
+        }
+    }
+
     public static void printBoard(String[][] ticTacToe) {
         TicTacToeMessage.gameTitle();
         for (String[] strings : ticTacToe) {
@@ -13,19 +24,14 @@ public class TicTacToeBoardManager {
         System.out.println();
     }
 
-    public static void printResult(String[][] ticTacToe, String player, boolean win) {
-        printBoard(ticTacToe);
-        if (win) {
-            TicTacToeMessage.playerWins(player);
-        } else {
-            TicTacToeMessage.draw();
-        }
-    }
-
     public static void playerTurn(String[][] ticTacToe, String currentPlayer) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("* Player " + currentPlayer + "'s turn! *");
+        String currentPlayerNickname = currentPlayer.equals(TicTacToePlayerSetup.getPlayer1Symbol()) ?
+                TicTacToePlayerSetup.getPlayer1Nickname() :
+                TicTacToePlayerSetup.getPlayer2Nickname();
+
+        System.out.println("* It's " + currentPlayerNickname + "'s turn! *");
         System.out.print("Enter coordinates (horizontal number and then vertical, for example: 2 3): ");
         int rowIndex = scanner.nextInt();
         int colIndex = scanner.nextInt();
@@ -38,3 +44,4 @@ public class TicTacToeBoardManager {
         ticTacToe[rowIndex][colIndex] = currentPlayer;
     }
 }
+

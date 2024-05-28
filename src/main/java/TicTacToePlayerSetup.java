@@ -1,19 +1,66 @@
 import java.util.Random;
 import java.util.Scanner;
 
-class TicTacToePlayerSetup {
+public class TicTacToePlayerSetup {
     private static final Random random = new Random();
     private static String player1Symbol;
     private static String player2Symbol;
+    private static String player1Nickname;
+    private static String player2Nickname;
+
+    public static String getPlayer1Symbol() {
+        return player1Symbol;
+    }
+
+    public static String getPlayer2Symbol() {
+        return player2Symbol;
+    }
+
+    public static String getPlayer1Nickname() {
+        return player1Nickname;
+    }
+
+    public static String getPlayer2Nickname() {
+        return player2Nickname;
+    }
 
     public static String setupPlayers() {
         Scanner scanner = new Scanner(System.in);
 
-        TicTacToeMessage.welcome();
+        if (TicTacToeLogicHandler.getPlayer1Score() >= 50 || TicTacToeLogicHandler.getPlayer2Score() >= 50 ) {
 
-        //Prompt to start the game
-        TicTacToeMessage.ready();
-        scanner.nextLine();
+            TicTacToeMessage.askToChangeNicknames();
+
+            String changeNick = scanner.nextLine().trim();
+            while (!changeNick.equalsIgnoreCase("yes") && !changeNick.equalsIgnoreCase("no")) {
+                System.out.print("Invalid choice! Please type 'yes' or 'no': ");
+                changeNick = scanner.nextLine().trim();
+            }
+            if (changeNick.equalsIgnoreCase("yes")) {
+
+                promptForNewNicknames();
+                TicTacToeMessage.resetScore();
+
+                String score = scanner.nextLine().trim();
+                while (!score.equalsIgnoreCase("yes") && !score.equalsIgnoreCase("no")) {
+                    System.out.print("Invalid choice! Please type 'yes' or 'no': ");
+                    score = scanner.nextLine().trim();
+                }
+                if (score.equalsIgnoreCase("yes")) {
+                    TicTacToeLogicHandler.setPlayer1Score(0);
+                    TicTacToeLogicHandler.setPlayer2Score(0);
+                }
+            }
+        } else {
+            TicTacToeMessage.welcome();
+
+            //Prompt to start the game
+            TicTacToeMessage.ready();
+            scanner.nextLine();
+
+            // Prompt for nicknames
+            promptForNicknames();
+        }
 
         // Prompt for randomization
         TicTacToeMessage.randomize();
@@ -29,12 +76,25 @@ class TicTacToePlayerSetup {
         return whoStarts();
     }
 
-    public static String getPlayer1Symbol() {
-        return player1Symbol;
+    public static void promptForNicknames() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the nickname for Player #1: ");
+        player1Nickname = scanner.nextLine().trim();
+
+        System.out.print("Enter the nickname for Player #2: ");
+        player2Nickname = scanner.nextLine().trim();
     }
 
-    public static String getPlayer2Symbol() {
-        return player2Symbol;
+    public static void promptForNewNicknames() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println();
+        System.out.print("Enter a new nickname for Player #1: ");
+        player1Nickname = scanner.nextLine().trim();
+
+        System.out.print("Enter a new nickname for Player #2: ");
+        player2Nickname = scanner.nextLine().trim();
     }
 
     public static String whoStarts() {
@@ -42,7 +102,7 @@ class TicTacToePlayerSetup {
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Which player will start? Enter 1 or 2: ");
+            System.out.print("Which player starts? Enter 1 or 2: ");
 
             // Check if the next token is an integer
             if (scanner.hasNextInt()) {
@@ -63,6 +123,3 @@ class TicTacToePlayerSetup {
         return (startingPlayerNumber == 1) ? player1Symbol : player2Symbol;
     }
 }
-
-
-

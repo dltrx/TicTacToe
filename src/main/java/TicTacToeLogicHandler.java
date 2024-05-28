@@ -2,8 +2,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class TicTacToeLogicHandler {
+    private static final int MIN_ROW_INDEX = 2;
+    private static final int MIN_COLUMN_INDEX = 2;
     private static String[][] ticTacToe = new String[5][5];
     private static boolean gameOver = false;
+    private static int player1Score = 0;
+    private static int player2Score = 0;
 
     protected static void initializeArray() {
         for (String[] strings : ticTacToe) {
@@ -23,8 +27,24 @@ public class TicTacToeLogicHandler {
         return gameOver;
     }
 
+    public static int getPlayer1Score() {
+        return player1Score;
+    }
+
+    public static int getPlayer2Score() {
+        return player2Score;
+    }
+
+    public static void setPlayer1Score(int player1Score) {
+        TicTacToeLogicHandler.player1Score = player1Score;
+    }
+
+    public static void setPlayer2Score(int player2Score) {
+        TicTacToeLogicHandler.player2Score = player2Score;
+    }
+
     protected static boolean isValidIndex(int rowIndex, int colIndex, String[][] ticTacToe) {
-        if (rowIndex >= 2 && rowIndex < ticTacToe.length && colIndex >= 2 && colIndex < ticTacToe[0].length) {
+        if (rowIndex >= MIN_ROW_INDEX && rowIndex < ticTacToe.length && colIndex >= MIN_COLUMN_INDEX && colIndex < ticTacToe[0].length) {
             return ticTacToe[rowIndex][colIndex].equals(" ");
         }
         return false;
@@ -81,7 +101,19 @@ public class TicTacToeLogicHandler {
                     // Check for win or draw
                     if (checkForWinOrDraw(ticTacToe, currentPlayer)) {
                         gameOver = true; // Set gameOver to true to exit the loop
-                        TicTacToeBoardManager.printResult(ticTacToe, currentPlayer, checkForWin(ticTacToe, currentPlayer));
+                        boolean win = checkForWin(ticTacToe, currentPlayer);
+
+                        if (win) {
+                            if (currentPlayer.equals(TicTacToePlayerSetup.getPlayer1Symbol())) {
+                                player1Score += 100;
+                            } else {
+                                player2Score += 100;
+                            }
+                        } else {
+                            player1Score += 50;
+                            player2Score += 50;
+                        }
+                        TicTacToeBoardManager.printResult(ticTacToe, currentPlayer, win);
                         break;
                     }
                     currentPlayer = (currentPlayer.equals("X")) ? "O" : "X"; // Switch player
@@ -95,8 +127,7 @@ public class TicTacToeLogicHandler {
 
         while (gameGoesOn) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println();
-            System.out.print("Do you want to play again? (Type 'again' to play again, 'exit' to quit): ");
+            TicTacToeMessage.playingAgainOrExit();
             String choice = scanner.nextLine().trim();
 
             while (!choice.equalsIgnoreCase("again") && !choice.equalsIgnoreCase("exit")) {
