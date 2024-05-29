@@ -112,12 +112,12 @@ public class TicTacToePlayerSetup {
                 if (startingPlayerNumber == 1 || startingPlayerNumber == 2) {
                     break; // Exit loop if valid input is provided
                 } else {
-                    System.out.println("Invalid input! Please enter 1 or 2.");
+                    System.out.println("Invalid input! Please enter 1 or 2!");
                 }
             } else {
                 // Clear the invalid input from the scanner
                 scanner.next();
-                System.out.println("Invalid input! Please enter an integer.");
+                System.out.println("Invalid input! Please enter an integer!");
             }
         }
         return (startingPlayerNumber == 1) ? player1Symbol : player2Symbol;

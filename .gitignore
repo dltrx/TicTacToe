@@ -16,6 +16,10 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
+### Secret ###
+src/main/resources/key
+src/main/resources/key/tictactoegloballeaderboard-firebase-adminsdk-d6sno-cc8b825d72.json
+
 ### Eclipse ###
 .apt_generated
 .classpath

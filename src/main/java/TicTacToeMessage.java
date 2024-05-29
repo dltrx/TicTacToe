@@ -1,3 +1,5 @@
+import firebase.FirebaseService;
+
 import java.util.Arrays;
 
 public class TicTacToeMessage {
@@ -64,6 +66,26 @@ public class TicTacToeMessage {
         printDynamicBoarder("CURRENT LEADERBOARD",
                 "Player #1 " + TicTacToePlayerSetup.getPlayer1Nickname() + " score: " + TicTacToeLogicHandler.getPlayer1Score(),
                 "Player #2 " + TicTacToePlayerSetup.getPlayer2Nickname() + " score: " + TicTacToeLogicHandler.getPlayer2Score());
+        System.out.println();
+    }
+
+    protected static void globalLeaderboard() {
+        FirebaseService firebaseService = FirebaseService.getInstance();
+
+        System.out.println();
+        printDynamicBoarder("GLOBAL LEADERBOARD");
+
+        firebaseService.getGlobalLeaderboard();
+        System.out.println();
+    }
+
+    protected static void gameHistory() {
+        FirebaseService firebaseService = FirebaseService.getInstance();
+
+        System.out.println();
+        printDynamicBoarder("GAME HISTORY");
+
+        firebaseService.getGameHistory();
     }
 
     protected static void playingAgainOrExit() {

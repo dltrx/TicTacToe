@@ -1,6 +1,10 @@
+import firebase.FirebaseInitializer;
+
 public class TicTacToe {
 
     public static void main(String[] args) {
+
+        FirebaseInitializer.initializeFirebase();
 
         TicTacToeLogicHandler.initializeArray();
 

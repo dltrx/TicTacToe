@@ -6,11 +6,39 @@ public class TicTacToeBoardManager {
         printBoard(ticTacToe);
         if (win) {
             TicTacToeMessage.playerWins(player);
-            TicTacToeMessage.currentLeaderboard();
         } else {
             TicTacToeMessage.draw();
-            TicTacToeMessage.currentLeaderboard();
         }
+        TicTacToeMessage.currentLeaderboard();
+
+        Scanner scanner = new Scanner(System.in);
+        int choice = 0;
+
+        do {
+            System.out.println("Choose one of the options below:");
+            System.out.println("1. Check Global Leaderboard");
+            System.out.println("2. Check Game History");
+            System.out.println("3. Skip this part");
+            System.out.print("Enter your choice (1-3): ");
+
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                if (choice < 1 || choice > 3) {
+                    System.out.println("Invalid choice! Please enter 1, 2, or 3.");
+                }
+            } else {
+                System.out.println("Invalid input! Please enter a number between 1 and 3.");
+                scanner.next(); // Clear the buffer after invalid input
+            }
+            switch (choice) {
+                case 1:
+                    TicTacToeMessage.globalLeaderboard();
+                    break;
+                case 2:
+                    TicTacToeMessage.gameHistory();
+                    break;
+            }
+        } while (choice != 3);
     }
 
     public static void printBoard(String[][] ticTacToe) {
@@ -44,4 +72,3 @@ public class TicTacToeBoardManager {
         ticTacToe[rowIndex][colIndex] = currentPlayer;
     }
 }
-

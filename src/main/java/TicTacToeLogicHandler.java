@@ -1,11 +1,16 @@
+import firebase.FirebaseService;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class TicTacToeLogicHandler {
     private static final int MIN_ROW_INDEX = 2;
     private static final int MIN_COLUMN_INDEX = 2;
+
     private static String[][] ticTacToe = new String[5][5];
+
     private static boolean gameOver = false;
+
     private static int player1Score = 0;
     private static int player2Score = 0;
 
@@ -91,6 +96,8 @@ public class TicTacToeLogicHandler {
     }
 
     protected static void gameLoop(String currentPlayer) {
+        FirebaseService firebaseService = FirebaseService.getInstance();
+
         for (int i = 2; i < ticTacToe.length; i++) {
             for (int j = 2; j < ticTacToe[i].length; j++) {
 
@@ -113,6 +120,7 @@ public class TicTacToeLogicHandler {
                             player1Score += 50;
                             player2Score += 50;
                         }
+                        firebaseService.savePlayerData(TicTacToePlayerSetup.getPlayer1Nickname(), player1Score, TicTacToePlayerSetup.getPlayer2Nickname(), player2Score);
                         TicTacToeBoardManager.printResult(ticTacToe, currentPlayer, win);
                         break;
                     }
