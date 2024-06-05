@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de64b067-2f05-4207-a40a-24cc6e5dec18" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeBoardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeBoardManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeLogicHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeLogicHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToeMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToeMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TicTacToePlayerSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TicTacToePlayerSetup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,27 +61,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.Build TicTacToe.executor": "Run",
-    "Gradle.TicTacToe [:TicTacToe.main()].executor": "Run",
-    "Gradle.TicTacToe.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/michaelburdaa/Documents/github/TicTacToe",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.Build TicTacToe.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TicTacToe [:TicTacToe.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TicTacToe.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/michaelburdaa/Documents/github/TicTacToe&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
